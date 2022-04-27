@@ -31,12 +31,15 @@ Given ('the user edit the last name', async function (this: ICustomWorld) {
 
 Given ('the user edit the country', async function (this: ICustomWorld) {
   const page = this.page!;
+  
+  await page.locator('#first-block > form > div > div.col-9 > div:nth-child(2) > div:nth-child(1) > div > div > a > span.select2-arrow.ui-select-toggle').click();
 
-  const maxLength = (await page.$$('ui-select-choices-0 > li')).length;
+  const maxLength = await (await page.$$('#ui-select-choices-0 > li')).length;
+
+  console.log(maxLength);
 
   const rand =   Math.floor(Math.random() * (maxLength) + 1);
 
-  await page.locator('#first-block > form > div > div.col-9 > div:nth-child(2) > div:nth-child(1) > div > div > a > span.select2-arrow.ui-select-toggle').click();
 
   await page.locator(`#ui-select-choices-row-0-${rand}`).click();
 });
