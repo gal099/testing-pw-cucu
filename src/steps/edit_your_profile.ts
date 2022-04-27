@@ -4,6 +4,7 @@ import { expect } from '@playwright/test';
 Given('the user edit the first name', async function (this: ICustomWorld) {
   const page = this.page!;
   let name = 'Juan' + Math.random();
+  
   await page.locator('text=First Name Last Name >> input[type="text"]').first().fill(name);
 });
 
@@ -21,3 +22,9 @@ Then('the changes should be saved', async function (this: ICustomWorld) {
     throw new Error(`Custom errror message\n${error}`);
   }
 });
+
+Given ('the user edit the last name', async function (this: ICustomWorld) {
+  const page = this.page!;
+  let lastName = 'Serrano' + Math.random();
+  await page.locator('text=First Name Last Name >> input[type="text"]').nth(1).fill(lastName);
+})

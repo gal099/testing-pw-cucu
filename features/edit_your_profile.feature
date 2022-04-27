@@ -8,3 +8,8 @@ Feature: Edit Your Profile
     Given the user edit the first name
     When the user confirms the edition
     Then the changes should be saved
+
+  Scenario: edit last name
+    Given the user edit the last name
+    When the user confirms the edition
+    Then the changes should be saved
