@@ -46,13 +46,17 @@ Given('the user is logged in', async function (this: ICustomWorld) {
 
   await page.frameLocator('#login-iframe').locator('input[name="password"]').fill('qwe123');
 
-  await page.frameLocator('#login-iframe').locator('input[name="password"]').press('Enter');
+  // await page.frameLocator('#login-iframe').locator('input[name="password"]').press('Enter');
 
-  await page.waitForURL('https://stage.connectamericas.com/dashboard');
+  await page.frameLocator('#login-iframe').locator('input[name="password"]').dispatchEvent('change');
+
+  await page.frameLocator('#login-iframe').locator('#fm1 .btn-submit').click();
 });
 
 Given('be on user profile section tab', async function (this: ICustomWorld) {
   const page = this.page!;
-  await page.locator('.name').hover();
-  await page.locator('//*[@id="header-user-actions"]/ul/li[1]/a[2]').click();
+  await page.locator('#header-user-actions .name ').hover();
+  await page.locator('.shared .edit >> nth=0').click();
+
+  
 });

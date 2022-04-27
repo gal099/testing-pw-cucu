@@ -3,8 +3,8 @@ import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 Given('the user edit the first name', async function (this: ICustomWorld) {
   const page = this.page!;
-
-  await page.locator('text=First Name Last Name >> input[type="text"]').first().fill('Juan');
+  let name = 'Juan' + Math.random();
+  await page.locator('text=First Name Last Name >> input[type="text"]').first().fill(name);
 });
 
 When('the user confirms the edition', async function (this: ICustomWorld) {
