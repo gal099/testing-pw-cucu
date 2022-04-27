@@ -39,5 +39,14 @@ Given ('the user edit the country', async function (this: ICustomWorld) {
   await page.locator(`#ui-select-choices-row-0-${rand}`).click();
 });
 
+Given ('the user edit the gender', async function (this: ICustomWorld) {
+  const page = this.page!;
+
+  const rand =   Math.floor(Math.random() * (3));
+
+  await page.locator('#first-block > form > div > div.col-9 > div:nth-child(2) > div.col-6.col-b-7.clearfix-b > div > div > a > span.select2-arrow.ui-select-toggle').click();
+
+  await page.locator(`#ui-select-choices-row-1-${rand}`).click();
+});
 
 

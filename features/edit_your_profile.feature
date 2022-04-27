@@ -18,3 +18,8 @@ Feature: Edit Your Profile
     Given the user edit the country
     When the user confirms the edition
     Then the changes should be saved 
+
+  Scenario: edit your gender
+    Given the user edit the gender
+    When the user confirms the edition
+    Then the changes should be saved     
