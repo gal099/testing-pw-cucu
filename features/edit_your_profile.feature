@@ -13,3 +13,8 @@ Feature: Edit Your Profile
     Given the user edit the last name
     When the user confirms the edition
     Then the changes should be saved
+  
+  Scenario: edit your country
+    Given the user edit the country
+    When the user confirms the edition
+    Then the changes should be saved 
