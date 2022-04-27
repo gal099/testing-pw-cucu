@@ -32,7 +32,9 @@ Given ('the user edit the last name', async function (this: ICustomWorld) {
 Given ('the user edit the country', async function (this: ICustomWorld) {
   const page = this.page!;
 
-  const rand =   Math.floor(Math.random() * (250));
+  const maxLength = (await page.$$('ui-select-choices-0 > li')).length;
+
+  const rand =   Math.floor(Math.random() * (maxLength) + 1);
 
   await page.locator('#first-block > form > div > div.col-9 > div:nth-child(2) > div:nth-child(1) > div > div > a > span.select2-arrow.ui-select-toggle').click();
 
