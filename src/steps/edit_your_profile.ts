@@ -32,32 +32,37 @@ When ('the user edit the country', async function (this: ICustomWorld) {
   const page = this.page!;  
   await page.locator('#first-block > form > div > div.col-9 > div:nth-child(2) > div:nth-child(1) > div > div > a > span.select2-arrow.ui-select-toggle').click();
   const maxLength = (await page.$$('#ui-select-choices-0 > li')).length;
-  const rand =   Math.floor(Math.random() * (maxLength) + 1);
+  const rand =   Math.floor(Math.random() * (maxLength));
   await page.locator(`#ui-select-choices-row-0-${rand}`).click();
 });
 
 When ('the user edit the gender', async function (this: ICustomWorld) {
   const page = this.page!;
   
-  const currentText = await (page.textContent('#first-block > form > div > div.col-9 > div:nth-child(2) > div.col-6.col-b-7.clearfix-b > div > div > a > span:nth-child(2) > span'))
+  let currentText = await (page.innerText('#first-block > form > div > div.col-9 > div:nth-child(2) > div.col-6.col-b-7.clearfix-b > div > div > a > span:nth-child(2) > span'));
   
-  console.log(currentText)
+  console.log(currentText);
   
   await page.locator('#first-block > form > div > div.col-9 > div:nth-child(2) > div.col-6.col-b-7.clearfix-b > div > div > a > span.select2-arrow.ui-select-toggle').click();
 
-  // const rand =   Math.floor(Math.random() * (3));
-
   const maxLength = (await page.$$('#ui-select-choices-1 > li')).length;
-
-  console.log(maxLength) ;
-
-  const rand =   Math.floor(Math.random() * (maxLength) + 1);
-
-  console.log(rand) ;
+    
+  let rand = Math.floor(Math.random() * (maxLength));
   
+  console.log(rand);
+  const randPositionText = await page.innerText(`#ui-select-choices-row-1-${rand}`);
+  
+  console.log("ASD " + currentText);
+
+  console.log("ASDASDA " + randPositionText);
 
 
+  console.log("is true??: " + (currentText === randPositionText))
+
+  if (currentText === randPositionText ) {
+    rand = Math.floor(Math.random() * (maxLength));  
+} else {
   await page.locator(`#ui-select-choices-row-1-${rand}`).click();
-});
+}});
 
 
