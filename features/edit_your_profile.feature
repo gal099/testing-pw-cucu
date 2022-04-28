@@ -5,21 +5,21 @@ Feature: Edit Your Profile
     And be on user profile section tab
 
   Scenario: edit first name
-    Given the user edit the first name
-    When the user confirms the edition
+    When the user edit the first name
+    And the user saves the changes
     Then the changes should be saved
 
   Scenario: edit last name
-    Given the user edit the last name
-    When the user confirms the edition
+    When the user edit the last name
+    And the user saves the changes
     Then the changes should be saved
   
   Scenario: edit your country
-    Given the user edit the country
-    When the user confirms the edition
+    When the user edit the country
+    And the user saves the changes
     Then the changes should be saved 
 
   Scenario: edit your gender
-    Given the user edit the gender
-    When the user confirms the edition
+    When the user edit the gender
+    And the user saves the changes
     Then the changes should be saved     
