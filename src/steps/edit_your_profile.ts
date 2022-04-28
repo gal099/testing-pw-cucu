@@ -61,8 +61,8 @@ When ('the user edit the gender', async function (this: ICustomWorld) {
 
   if (currentText === randPositionText ) {
     rand = Math.floor(Math.random() * (maxLength));  
-} else {
-  await page.locator(`#ui-select-choices-row-1-${rand}`).click();
-}});
+} 
 
+await page.locator(`#ui-select-choices-row-1-${rand}`).click()
+});
 
