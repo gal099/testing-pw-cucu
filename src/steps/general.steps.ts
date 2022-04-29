@@ -55,7 +55,7 @@ Given('the user is logged in', async function (this: ICustomWorld) {
   await page.frameLocator('#login-iframe').locator('#fm1 .btn-submit').click();
 });
 
-Given('be on user profile section tab', async function (this: ICustomWorld) {
+Given('the user is in the user profile section tab', async function (this: ICustomWorld) {
   const page = this.page!;
   await page.locator('#header-user-actions .name ').hover();
   await page.locator('.shared .edit >> nth=0').click();

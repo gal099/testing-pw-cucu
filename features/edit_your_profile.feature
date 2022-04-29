@@ -2,7 +2,7 @@ Feature: Edit Your Profile
 
   Background: the user is logged on profile section tab
     Given the user is logged in
-    And be on user profile section tab
+    And the user is in the user profile section tab
 
   Scenario: edit first name
     When the user edit the first name
