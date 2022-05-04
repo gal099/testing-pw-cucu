@@ -1,6 +1,7 @@
 import { ICustomWorld } from '../support/custom-world';
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
+import {navigate} from '../utils/elements';
 
 Given('a user is in the log in page', async function (this: ICustomWorld) {
   const page = this.page!;
@@ -37,7 +38,8 @@ Then('a user is logged in to the system', async function (this: ICustomWorld) {
 
 Given('the user is logged in', async function (this: ICustomWorld) {
   const page = this.page!;
-  await page.goto('https://stage.connectamericas.com/');
+  // await page.goto('https://stage.connectamericas.com/');
+  await navigate(page, 'https://stage.connectamericas.com/dashboard')
   await page.click('#loginBtn');
   await page
     .frameLocator('#login-iframe')
