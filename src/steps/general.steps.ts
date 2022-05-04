@@ -44,10 +44,10 @@ Given('the user is logged in', async function (this: ICustomWorld) {
   const page = this.page!;
   const email = process.env.EMAIL || '';
   const password = process.env.PASSWORD || '';
-  
-  console.log(process.env.EMAIL)
-  // await page.goto('https://stage.connectamericas.com/');
-  await navigate(page, 'https://stage.connectamericas.com/dashboard')
+  const url = process.env.URL || '';
+
+    // await page.goto('https://stage.connectamericas.com/');
+  await navigate(page, url);
   await page.click('#loginBtn');
   await page
     .frameLocator('#login-iframe')
