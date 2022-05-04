@@ -46,7 +46,7 @@ Given('the user is logged in', async function (this: ICustomWorld) {
     .locator('input[name="username"]')
     .fill('juanba91@hotmail.com');
 
-  // await page.frameLocator('#login-iframe').locator('input[name="password"]').fill('qwe123');
+  // await page.frameLocator('#login-iframe').locator('input[name="password"]').fill('qwe123'); change the method 'fill' for 'type' 
 
   await page.frameLocator('#login-iframe').locator('input[name="password"]').type('qwe123');
 
