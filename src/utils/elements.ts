@@ -9,6 +9,16 @@ export async function clickOn(element:Locator) {
     await element.click();
 }
 
+export async function hoverOn(element: Locator) {
+    await element.hover();
+}
+
 export async function getElement(page: Page, element:string) {
     return page.locator(element);    
+}
+
+export async function goToProfile(page: Page) {
+    const userMenu = await getElement(page, '#header-user-actions .name ');
+    await hoverOn(userMenu);
+    await page.locator('.shared .edit >> nth=0').click();
 }
