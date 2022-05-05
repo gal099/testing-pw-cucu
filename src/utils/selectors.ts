@@ -1,3 +1,4 @@
-import { Locator } from "@playwright/test";
+export const selectors: {[key: string]: any}  = {
 
-const loginBtn = page.Locator('#user-menu #loginBtn');
+  loginBtn:  '#user-menu #loginBtn',
+}
