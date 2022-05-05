@@ -1,7 +1,8 @@
 import { ICustomWorld } from '../support/custom-world';
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
-import {navigate} from '../utils/elements';
+import {navigate, clickOn} from '../utils/elements';
+
 /* eslint-disable import/first */
 require('dotenv').config();
 
@@ -45,10 +46,12 @@ Given('the user is logged in', async function (this: ICustomWorld) {
   const email = process.env.EMAIL || '';
   const password = process.env.PASSWORD || '';
   const url = process.env.URL || '';
+  const loginBtn = await page.locator('#loginBtn').first();
 
     // await page.goto('https://stage.connectamericas.com/');
   await navigate(page, url);
-  await page.click('#loginBtn');
+  await console.log(page.url());
+  await clickOn(loginBtn);
   await page
     .frameLocator('#login-iframe')
     .locator('input[name="username"]')
