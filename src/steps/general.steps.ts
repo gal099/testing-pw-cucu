@@ -2,6 +2,7 @@ import { ICustomWorld } from '../support/custom-world';
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import { login } from '../utils/login';
+import { goToProfile } from '../utils/elements';
 
 /* eslint-disable import/first */
 require('dotenv').config();
@@ -53,8 +54,7 @@ Given('the user is logged in', async function (this: ICustomWorld) {
 
 Given('the user is in the user profile section tab', async function (this: ICustomWorld) {
   const page = this.page!;
-  await page.locator('#header-user-actions .name ').hover();
-  await page.locator('.shared .edit >> nth=0').click();
+  await goToProfile(page);
 
   
 });
