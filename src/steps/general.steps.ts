@@ -1,7 +1,7 @@
 import { ICustomWorld } from '../support/custom-world';
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
-import {navigate, clickOn} from '../utils/elements';
+import { login } from '../utils/login';
 
 /* eslint-disable import/first */
 require('dotenv').config();
@@ -43,29 +43,12 @@ Then('a user is logged in to the system', async function (this: ICustomWorld) {
 
 Given('the user is logged in', async function (this: ICustomWorld) {
   const page = this.page!;
-  const email = process.env.EMAIL || '';
+  const userName = process.env.EMAIL || '';
   const password = process.env.PASSWORD || '';
-  const url = process.env.URL || '';
-  const loginBtn = await page.locator('#loginBtn').first();
+  const url = process.env.URL || '';  
 
-    // await page.goto('https://stage.connectamericas.com/');
-  await navigate(page, url);
-  await console.log(page.url());
-  await clickOn(loginBtn);
-  await page
-    .frameLocator('#login-iframe')
-    .locator('input[name="username"]')
-    .type(email);
-
-  // await page.frameLocator('#login-iframe').locator('input[name="password"]').fill('qwe123'); change the method 'fill' for 'type' 
-
-  await page.frameLocator('#login-iframe').locator('input[name="password"]').type(password);
-
-  // await page.frameLocator('#login-iframe').locator('input[name="password"]').press('Enter');
-
-  // await page.frameLocator('#login-iframe').locator('input[name="password"]').dispatchEvent('change');
-
-  await page.frameLocator('#login-iframe').locator('#fm1 .btn-submit').click();
+  await login(page, url, userName, password);
+  
 });
 
 Given('the user is in the user profile section tab', async function (this: ICustomWorld) {
