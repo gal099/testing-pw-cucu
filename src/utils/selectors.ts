@@ -1,4 +1,4 @@
-export const selectors: {[key: string]: any}  = {
+export const selectors  = {
 
   loginBtn:  '#user-menu #loginBtn',
 
